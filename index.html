@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FFmpeg Legend — Superhero Rahasia Multimedia</title>
+  <meta name="description" content="Presentasi interaktif web-based untuk mengenalkan FFmpeg kepada orang awam dengan analogi seru dan simulator interaktif.">
+
+  <!-- Google Fonts (Modern Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Presentation Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Glowing Backgrounds -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Top HUD Bar -->
+  <header class="top-hud">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="top-bar-info">
+      <div class="brand-badge">
+        <span class="brand-dot"></span>
+        <span>FFmpeg Legend</span>
+      </div>
+      <div class="slide-title-hud" id="hudSlideTitle">Memuat Presentasi...</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span class="kbd-badge" title="Gunakan tombol panah keyboard">⌨ Navigasi Keyboard Aktif</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Presentation Slides Deck -->
+  <main class="deck-container">
+
+    <!-- ==========================================
+         SLIDE 1: HERO / COVER
+         ========================================== -->
+    <section class="slide active" id="slide-1" data-title="FFmpeg Legend: Superhero Rahasia">
+      <div class="hero-wrapper">
+        <div class="hero-logo-box">⚡</div>
+        <span class="slide-tag">Pengenalan Multimedia untuk Orang Awam</span>
+        <h1 class="slide-title">
+          FFMPEG <span class="gradient-cyan">LEGEND</span>
+        </h1>
+        <p class="slide-subtitle">
+          Superhero rahasia di balik semua video, musik, dan streaming di HP & internet yang Anda nikmati setiap hari.
+        </p>
+
+        <div class="hero-chips">
+          <div class="hero-chip">✨ 100% Gratis & Open-Source</div>
+          <div class="hero-chip">🚀 Tanpa Iklan / Watermark</div>
+          <div class="hero-chip">🎬 Menopang Seluruh Dunia Digital</div>
+        </div>
+
+        <div class="hero-hint">
+          <span>Gunakan</span>
+          <span class="kbd-badge">Space</span>
+          <span>atau</span>
+          <span class="kbd-badge">→</span>
+          <span>untuk mulai presentasi</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 2: HOOK / REALITA
+         ========================================== -->
+    <section class="slide" id="slide-2" data-title="Tahukah Anda? FFmpeg Ada di Mana-mana">
+      <span class="slide-tag green">Fakta Mengejutkan</span>
+      <h2 class="slide-title">Anda Menggunakannya <span class="gradient-green">Setiap Hari</span></h2>
+      <p class="slide-subtitle">
+        Tanpa Anda sadari, raksasa teknologi yang Anda buka setiap detik mengandalkan software ini di balik layar:
+      </p>
+
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h3 class="card-title">WhatsApp</h3>
+          <p class="card-desc">Mengompres video 80MB jadi 5MB dalam 1 detik saat Anda mengirim video ke teman atau grup keluarga.</p>
+          <div class="card-highlight">⚡ Mesinnya: FFmpeg</div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📺</div>
+          <h3 class="card-title">YouTube & TikTok</h3>
+          <p class="card-desc">Memproses ribuan jam upload video setiap menit ke dalam resolusi 1080p, 720p, hingga 4K.</p>
+          <div class="card-highlight">⚡ Mesinnya: FFmpeg</div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🍿</div>
+          <h3 class="card-title">Netflix & Disney+</h3>
+          <p class="card-desc">Menyiapkan format video adaptif agar film tetap lancar ditonton meski sinyal internet Anda naik-turun.</p>
+          <div class="card-highlight">⚡ Mesinnya: FFmpeg</div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎧</div>
+          <h3 class="card-title">VLC & Discord</h3>
+          <p class="card-desc">Mampu memutar file audio/video format apapun tanpa pernah mengeluh "format tidak didukung".</p>
+          <div class="card-highlight">⚡ Mesinnya: FFmpeg</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 3: SIAPA FFMPG?
+         ========================================== -->
+    <section class="slide" id="slide-3" data-title="Siapa Sebenarnya FFmpeg?">
+      <span class="slide-tag amber">Definisi Sederhana</span>
+      <h2 class="slide-title">Siapa Sih <span class="gradient-fire">FFmpeg</span> Sebenarnya?</h2>
+      <p class="slide-subtitle">
+        Tidak perlu pusing dengan istilah teknis rumit. Bayangkan FFmpeg sebagai 3 hal ini:
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">🗡️</div>
+          <h3 class="card-title">Pisau Swiss Army</h3>
+          <p class="card-desc">
+            Alat serbaguna yang bisa memotong, menyambung, memutar balik, mempercepat, mengecilkan, dan mengubah jenis file media apapun di dunia.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏭</div>
+          <h3 class="card-title">Dapur Koki Ajaib</h3>
+          <p class="card-desc">
+            Mengolah bahan mentah video kamera (yang beratnya bergiga-giga) menjadi hidangan ringan, lezat, dan siap dinikmati di layar smartphone Anda.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">👑</div>
+          <h3 class="card-title">Veteran 25+ Tahun</h3>
+          <p class="card-desc">
+            Diciptakan tahun 2000 oleh programmer jenius Fabrice Bellard. 100% karya murni komunitas open-source tanpa ada perusahaan yang memonopoli.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 4: MITOS CLI (LAYAR HITAM)
+         ========================================== -->
+    <section class="slide" id="slide-4" data-title="Mitos Layar Hitam (CLI vs GUI)">
+      <span class="slide-tag purple">Membongkar Mitos</span>
+      <h2 class="slide-title">"Kok Nggak Ada <span class="gradient-cyan">Tombolnya?</span>"</h2>
+      <p class="slide-subtitle">
+        Orang awam sering kaget saat melihat FFmpeg karena tampilannya hanya layar hitam terminal. Tapi justru itulah kekuatannya!
+      </p>
+
+      <div class="versus-container">
+        <div class="compare-card">
+          <div class="slide-tag amber">Aplikasi Tombol Biasa (GUI)</div>
+          <h3 class="card-title">Seperti Mobil Keluarga</h3>
+          <ul class="compare-list">
+            <li>🚗 Mudah dipakai untuk pemula.</li>
+            <li>⏳ Berat dan makan banyak memori RAM.</li>
+            <li>⚠️ Pegal kalau harus klik 100 video satu per satu.</li>
+            <li>💸 Sering disisipi iklan, langganan mahal, & watermark.</li>
+          </ul>
+        </div>
+
+        <div class="vs-badge">VS</div>
+
+        <div class="compare-card highlight">
+          <div class="slide-tag green">FFmpeg (Command Line)</div>
+          <h3 class="card-title">Seperti Jet Tempur Supersonik</h3>
+          <ul class="compare-list">
+            <li>⚡ <strong>Ringan luar biasa</strong>: Tanpa beban animasi berat.</li>
+            <li>🚀 <strong>1 Baris Perintah</strong>: Bisa otomatis proses 1.000 video sekaligus sambil ditinggal tidur.</li>
+            <li>💎 <strong>100% Gratis</strong>: Bebas watermark selamanya.</li>
+            <li>🛠️ <strong>Akurasi Penuh</strong>: Mengatur video hingga satuan milidetik.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 5: CONTAINER VS CODEC (INTERAKTIF)
+         ========================================== -->
+    <section class="slide" id="slide-5" data-title="Konsep Inti: Container vs Codec">
+      <span class="slide-tag green">Konsep Kunci Sederhana</span>
+      <h2 class="slide-title">Rahasia di Balik File <span class="gradient-green">MP4 & MKV</span></h2>
+      <p class="slide-subtitle">
+        Pernah heran kenapa video berformat .mp4 kadang bisa diputar di HP tapi macet di TV lama? Ini jawabannya:
+      </p>
+
+      <div class="interactive-box-demo">
+        <div class="package-graphic" id="packageGraphic">
+          <span class="package-label">📦 CONTAINER (Kardus Luar)</span>
+          <h3 style="font-size:1.4rem;font-weight:800;color:#fff;">Video_Liburan.mp4</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);">
+            MP4, MKV, AVI, dan MOV hanyalah <strong>Kardus Pembungkus</strong> untuk membawa video & audio.
+          </p>
+
+          <div class="inner-items">
+            <div class="inner-chip">
+              <div class="icon">🎞️</div>
+              <div class="name">Video Stream</div>
+              <div class="role">Codec: H.264 / AV1</div>
+            </div>
+            <div class="inner-chip">
+              <div class="icon">🎵</div>
+              <div class="name">Audio Stream</div>
+              <div class="role">Codec: AAC / MP3</div>
+            </div>
+          </div>
+
+          <button class="btn-inspect" id="btnInspectPackage">
+            🔍 Buka & Bedah Isi Kotak MP4
+          </button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card" style="border-color:rgba(0,242,254,0.3);">
+            <h4 class="card-title" style="color:var(--accent-cyan);">💡 Analogi Kado & Pakaian:</h4>
+            <p class="card-desc">
+              <strong>Container (MP4)</strong> adalah <em>Kotak Kardusnya</em>.<br>
+              <strong>Codec (H.264)</strong> adalah <em>Baju yang dilipat rapi</em> di dalam kardus.<br>
+              Kalau TV Anda tidak paham cara "membuka lipatan baju" (codec), video tidak akan bisa diputar meski kardusnya terbaca!
+            </p>
+          </div>
+
+          <div id="innerPackageDetails">
+            <p style="color:var(--text-dim);font-style:italic;">Klik tombol di sebelah kiri untuk membuka kardus MP4 dan melihat stream di dalamnya!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 6: 5 SIHIR FFMPEG
+         ========================================== -->
+    <section class="slide" id="slide-6" data-title="5 Sihir FFmpeg Sehari-hari">
+      <span class="slide-tag amber">Paling Sering Dipakai</span>
+      <h2 class="slide-title">5 <span class="gradient-fire">"Sihir"</span> FFmpeg Sehari-hari</h2>
+      <p class="slide-subtitle">
+        Inilah alasan kenapa orang yang sudah kenal FFmpeg malas membuka aplikasi video editor berat:
+      </p>
+
+      <div class="tricks-grid">
+        <div class="card">
+          <span class="trick-badge">Sihir #1</span>
+          <h3 class="card-title">✂️ Potong Video 0.1 Detik</h3>
+          <p class="card-desc">
+            Memotong video 2 jam tanpa rendering ulang. Langsung disimpan instan sekejap mata dengan mode <code>-c copy</code>.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="trick-badge">Sihir #2</span>
+          <h3 class="card-title">🎵 Ambil Lagu Jadi MP3</h3>
+          <p class="card-desc">
+            Punya rekaman konser di video? Buang videonya dan simpan suaranya jadi MP3 jernih dalam 1 detik.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="trick-badge">Sihir #3</span>
+          <h3 class="card-title">📉 Kompres Video Jumbo</h3>
+          <p class="card-desc">
+            Ubah video 1.2 GB dari kamera HP jadi 25 MB agar muat dikirim email atau WhatsApp tanpa gambar buram.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="trick-badge">Sihir #4</span>
+          <h3 class="card-title">🖼️ Bikin Meme GIF HD</h3>
+          <p class="card-desc">
+            Buat animasi GIF jernih tanpa bintik-bintik rusak dan tanpa watermark situs aneh.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="trick-badge">Sihir #5</span>
+          <h3 class="card-title">🔄 Ubah Format Apapun</h3>
+          <p class="card-desc">
+            Ubah MKV ke MP4, WebM ke MOV, WAV ke MP3 secara lossless tanpa merusak kualitas rekaman asli.
+          </p>
+        </div>
+
+        <div class="card" style="background:linear-gradient(145deg, rgba(0,242,254,0.1), rgba(18,26,47,0.7));border-color:var(--border-bright);">
+          <span class="trick-badge" style="background:rgba(0,242,254,0.2);color:var(--accent-cyan);">Sihir Bonus</span>
+          <h3 class="card-title">⚡ Batch Automation</h3>
+          <p class="card-desc">
+            Terapkan satu perintah ke 500 file video sekaligus hanya dengan 1 kali klik Enter.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 7: LIVE TERMINAL SIMULATOR (PLAYGROUND)
+         ========================================== -->
+    <section class="slide" id="slide-7" data-title="Live Terminal Simulator">
+      <span class="slide-tag cyan">Coba Sendiri (Live Demo)</span>
+      <h2 class="slide-title">Interactive <span class="gradient-cyan">Playground</span></h2>
+      <p class="slide-subtitle">
+        Klik preset perintah di bawah untuk melihat simulasi FFmpeg bekerja secara real-time:
+      </p>
+
+      <div class="playground-container">
+        <!-- Terminal Box -->
+        <div class="terminal-box">
+          <div class="terminal-header">
+            <div class="term-dots">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+            </div>
+            <span class="term-title">terminal — ffmpeg-engine</span>
+            <span>bash</span>
+          </div>
+
+          <div class="terminal-body" id="termBody">
+            <div><span class="term-prompt">user@legend-pc:~$</span> <span class="term-output">Pilih salah satu tombol preset di samping kanan untuk mulai...</span></div>
+          </div>
+
+          <div class="term-progress-bar" id="termProgressBar" style="display:none;">
+            <div class="term-progress-fill" id="termProgressFill"></div>
+          </div>
+        </div>
+
+        <!-- Preset Controller -->
+        <div class="preset-selector">
+          <div class="preset-title">
+            <span>⚡ Pilih Jurus:</span>
+          </div>
+
+          <button class="preset-btn" data-preset="compress">
+            <div class="preset-btn-name">📉 1. Kompres Video WhatsApp</div>
+            <div class="preset-btn-desc">Kecilkan 1.2 GB jadi 24 MB (CRF 28)</div>
+          </button>
+
+          <button class="preset-btn" data-preset="cut">
+            <div class="preset-btn-name">✂️ 2. Potong Video 10 Detik</div>
+            <div class="preset-btn-desc">Stream copy instan (0.1 detik selesai!)</div>
+          </button>
+
+          <button class="preset-btn" data-preset="audio">
+            <div class="preset-btn-name">🎵 3. Ekstrak Musik MP3</div>
+            <div class="preset-btn-desc">Ambil suara dari video konser HD</div>
+          </button>
+
+          <button class="preset-btn" data-preset="gif">
+            <div class="preset-btn-name">🖼️ 4. Bikin Meme GIF HD</div>
+            <div class="preset-btn-desc">Konversi video jadi GIF jernih dengan palet warna</div>
+          </button>
+
+          <div class="result-card">
+            <div style="font-weight:700;color:var(--text-main);margin-bottom:6px;">📊 Hasil Simulasi:</div>
+            <div id="simResultContent">
+              <span style="color:var(--text-dim);">Belum ada perintah yang dijalankan.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 8: MANTRA SAKTI (CHEAT SHEET)
+         ========================================== -->
+    <section class="slide" id="slide-8" data-title="Mantra Sakti (Cheat Sheet) Pemula">
+      <span class="slide-tag green">Panduan Praktis</span>
+      <h2 class="slide-title">Rumus Dasar <span class="gradient-green">Mantra Sakti</span></h2>
+      <p class="slide-subtitle">
+        Struktur perintah FFmpeg sebenarnya sangat logis dan mudah dihafal:
+      </p>
+
+      <div style="background:rgba(0,0,0,0.4);border:1px solid var(--border-bright);padding:14px 24px;border-radius:var(--radius-md);margin-bottom:20px;font-family:var(--font-code);font-size:1.1rem;color:#ffffff;text-align:center;">
+        ffmpeg <span style="color:var(--accent-amber);">-i input.mp4</span> <span style="color:var(--accent-cyan);">[opsi sihir]</span> <span style="color:var(--accent-green);">output.mp4</span>
+      </div>
+
+      <div class="cheat-table">
+        <div class="cheat-row">
+          <div class="cheat-cmd">-i nama_video.mp4</div>
+          <div class="cheat-meaning"><strong>Input File</strong>: Menentukan file sumber yang mau diproses.</div>
+          <div class="cheat-speed">Wajib</div>
+        </div>
+
+        <div class="cheat-row">
+          <div class="cheat-cmd">-c copy</div>
+          <div class="cheat-meaning"><strong>Stream Copy</strong>: Kloning langsung tanpa buang waktu rendering.</div>
+          <div class="cheat-speed">⚡ 0.1 Detik</div>
+        </div>
+
+        <div class="cheat-row">
+          <div class="cheat-cmd">-ss 00:01:00 -to 00:01:30</div>
+          <div class="cheat-meaning"><strong>Trim Durasi</strong>: Potong mulai menit 01:00 sampai 01:30.</div>
+          <div class="cheat-speed">Presisi</div>
+        </div>
+
+        <div class="cheat-row">
+          <div class="cheat-cmd">-crf 28</div>
+          <div class="cheat-meaning"><strong>Smart Compression</strong>: Keseimbangan sempurna ukuran kecil & gambar jernih.</div>
+          <div class="cheat-speed">Hemat 90%</div>
+        </div>
+
+        <div class="cheat-row">
+          <div class="cheat-cmd">-vn</div>
+          <div class="cheat-meaning"><strong>Video None</strong>: Buang gambar video, hanya simpan audionya saja.</div>
+          <div class="cheat-speed">Ambil MP3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 9: CARA PASANG & GUI TOOLS
+         ========================================== -->
+    <section class="slide" id="slide-9" data-title="Cara Pasang & Ekosistem GUI">
+      <span class="slide-tag purple">Mulai Menggunakan</span>
+      <h2 class="slide-title">Cara Pasang & <span class="gradient-cyan">Rahasia Tersembunyi</span></h2>
+      <p class="slide-subtitle">
+        Memasang FFmpeg sangat mudah, atau gunakan aplikasi favorit Anda yang diam-diam bertenaga FFmpeg:
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="slide-tag cyan">Cara Install 1 Baris</div>
+          <h3 class="card-title">Langsung di Komputer Anda</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;">
+            <div style="background:rgba(0,0,0,0.4);padding:10px 14px;border-radius:8px;font-family:var(--font-code);font-size:0.85rem;">
+              <span style="color:var(--accent-amber);">🪟 Windows:</span> winget install Gyan.FFmpeg
+            </div>
+            <div style="background:rgba(0,0,0,0.4);padding:10px 14px;border-radius:8px;font-family:var(--font-code);font-size:0.85rem;">
+              <span style="color:var(--accent-cyan);">🍎 macOS:</span> brew install ffmpeg
+            </div>
+            <div style="background:rgba(0,0,0,0.4);padding:10px 14px;border-radius:8px;font-family:var(--font-code);font-size:0.85rem;">
+              <span style="color:var(--accent-green);">🐧 Linux:</span> sudo apt install ffmpeg
+            </div>
+          </div>
+        </div>
+
+        <div class="card highlight">
+          <div class="slide-tag green">Masih Takut Terminal?</div>
+          <h3 class="card-title">Pakai Aplikasi GUI Berbasis FFmpeg</h3>
+          <p class="card-desc" style="margin-bottom:12px;">
+            Aplikasi gratis ini memiliki tombol-tombol yang nyaman dan di dalamnya menggunakan engine FFmpeg:
+          </p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.85rem;">
+            <div style="background:rgba(255,255,255,0.05);padding:8px;border-radius:6px;">🥑 <strong>HandBrake</strong> (Kompres)</div>
+            <div style="background:rgba(255,255,255,0.05);padding:8px;border-radius:6px;">✂️ <strong>LosslessCut</strong> (Potong)</div>
+            <div style="background:rgba(255,255,255,0.05);padding:8px;border-radius:6px;">🎙️ <strong>Audacity</strong> (Audio)</div>
+            <div style="background:rgba(255,255,255,0.05);padding:8px;border-radius:6px;">🎬 <strong>Shotcut</strong> (Editor)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 10: RANGKUMAN & PENUTUP
+         ========================================== -->
+    <section class="slide" id="slide-10" data-title="Kesimpulan: The Open Source Legend">
+      <div class="hero-wrapper">
+        <span class="slide-tag green">Penghormatan</span>
+        <h2 class="slide-title">FFmpeg: <span class="gradient-green">The Living Legend</span></h2>
+        
+        <div class="quote-box">
+          <p class="quote-text">
+            "Di balik setiap pixel video dan nada lagu yang kita nikmati di internet hari ini, ada ribuan baris kode gratis dari komunitas open-source yang setia bekerja tanpa pernah meminta pamrih."
+          </p>
+          <p style="color:var(--text-muted);font-size:0.95rem;">
+            Terima kasih telah menyimak! Sekarang giliran Anda mencoba keajaiban FFmpeg.
+          </p>
+        </div>
+
+        <div class="final-actions">
+          <button class="btn-primary" onclick="window.fireConfetti()">
+            🎉 Rayakan! (Confetti)
+          </button>
+          <button class="btn-secondary" onclick="window.presenterJump(1)">
+            🔄 Mulai dari Awal
+          </button>
+          <button class="btn-secondary" onclick="window.presenterJump(7)">
+            🎮 Buka Simulator Lagi
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       BOTTOM FLOATING NAVIGATION HUD
+       ========================================== -->
+  <nav class="floating-hud">
+    <button class="hud-btn" id="btnPrev" title="Slide Sebelumnya (Panah Kiri / Backspace)">◀</button>
+    <div class="hud-counter" id="hudCounter">01 / 10</div>
+    <button class="hud-btn" id="btnNext" title="Slide Selanjutnya (Panah Kanan / Spasi)">▶</button>
+    
+    <div class="hud-divider"></div>
+    
+    <button class="hud-btn" id="btnOverview" title="Peta Semua Slide (O / Esc)">📑</button>
+    <button class="hud-btn" id="btnNotes" title="Catatan Pembicara / Speaker Notes (N / P)">📝</button>
+    <button class="hud-btn active" id="btnSound" title="Suara Transisi (M)">🔊</button>
+    <button class="hud-btn" id="btnFullscreen" title="Layar Penuh (F)">⛶</button>
+  </nav>
+
+  <!-- ==========================================
+       OVERVIEW MODAL (SLIDE MAP)
+       ========================================== -->
+  <div class="overview-modal" id="overviewModal">
+    <div class="overview-header">
+      <div class="overview-title">📑 Peta Seluruh Slide Presentasi</div>
+      <button class="btn-secondary" id="btnCloseOverview">✕ Tutup (Esc)</button>
+    </div>
+    <div class="overview-grid" id="overviewGrid">
+      <!-- Generated dynamically by script.js -->
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PRESENTER NOTES MODAL
+       ========================================== -->
+  <div class="notes-modal" id="notesModal">
+    <div class="notes-header">
+      <div class="notes-title">📝 Catatan Pembicara (Presenter Notes)</div>
+      <button style="background:none;border:none;color:#fff;cursor:pointer;" id="btnCloseNotes">✕</button>
+    </div>
+    <div class="notes-body" id="notesBody">
+      <!-- Injected dynamically by script.js -->
+    </div>
+  </div>
+
+  <!-- Presentation Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
